@@ -1,0 +1,38 @@
+<include>
+    <X-PRE-PROCESS cmd="set" data="cluster_password=_FS_SECRET_"/>
+    <X-PRE-PROCESS cmd="set" data="cluster_host=_FS_HOST_"/>
+    <X-PRE-PROCESS cmd="set" data="sql_cluster_password=_PG_SECRET_"/>
+    <X-PRE-PROCESS cmd="set" data="sql_cluster_host=_PG_HOST_"/>
+    <X-PRE-PROCESS cmd="set" data="sql_cluster_db=_PG_DB_NAME_"/>
+    <X-PRE-PROCESS cmd="set" data="sql_cluster_user=_PG_USER_"/>
+    <X-PRE-PROCESS cmd="set" data="max_inbound_call_limit=_MAX_INBOUND_CALL_LIMIT_"/>
+    <X-PRE-PROCESS cmd="set" data="max_sessions=_MAX_SESSIONS_"/>
+    <X-PRE-PROCESS cmd="set" data="max_cps=_MAX_CPS_"/>
+    <X-PRE-PROCESS cmd="set" data="logfile_mount_point=/_LOGFILE_MOUNT_POINT_"/>
+
+    <!--
+        Debug
+    -->
+    <X-PRE-PROCESS cmd="set" data="console_loglevel=debug"/>
+    <!-- 
+        Localization
+    -->  
+    <X-PRE-PROCESS cmd="set" data="domain=$${cluster_host}"/>
+    <X-PRE-PROCESS cmd="set" data="domain_name=$${domain}"/>
+    <!--
+        SIP and TLS
+    -->
+    <X-PRE-PROCESS cmd="set" data="external_sip_ip=$${cluster_host}"/>
+    <X-PRE-PROCESS cmd="set" data="internal_sip_ip=$${cluster_host}"/>
+    <X-PRE-PROCESS cmd="set" data="internal_sip_port=5080"/>
+    <X-PRE-PROCESS cmd="set" data="external_sip_port=5060"/>    
+    <!--
+        RTP
+    -->
+    <X-PRE-PROCESS cmd="set" data="external_rtp_ip=$${cluster_host}"/>
+    <X-PRE-PROCESS cmd="set" data="internal_rtp_ip=$${cluster_host}"/>
+    <X-PRE-PROCESS cmd="set" data="global_codec_prefs=G729,G722,GSM,PCMA,PCMU"/>
+    <!-- TRANSCODING ENABLED 
+    <X-PRE-PROCESS cmd="set" data="media_mix_inbound_outbound_codecs=true"/>
+    --> 
+</include>        

@@ -1,0 +1,13 @@
+<configuration name="acl.conf" description="Network Lists">
+
+  <network-lists>
+    <list name="trusted" default="deny">
+    </list>               
+    <list name="domains" default="deny">
+      <node type="allow" domain="$${domain}"/>
+    </list>    
+  </network-lists>
+
+</configuration>              
+
+

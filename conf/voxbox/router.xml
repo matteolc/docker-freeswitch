@@ -1,0 +1,30 @@
+<include>            
+  
+  <context name="router">             
+    
+    <extension name="unloop">
+      <condition field="${unroll_loops}" expression="^true$"/>
+      <condition field="${sip_looped_call}" expression="^true$">
+        <action application="deflect" data="${destination_number}"/>
+      </condition>
+    </extension>	
+    
+	<extension name="exchange" continue="true">
+	  <condition field="destination_number" expression="^">
+	    <action application="info"/> 
+	    <action application="limit_execute" data="hash inbound ${sip_received_ip} ${max_inbound_call_limit} lua /opt/scripts/billing.lua" />	
+	  </condition>                                                                                
+	</extension>  
+    
+    <extension name="reject" continue="false">
+       <condition break="always">
+         <action application="set" data="proto_specific_hangup_cause=sip:503"/>
+         <action application="set" data="hangup_cause_q850=SERVICE_UNAVAILABLE"/>
+         <action application="log" data="1 A-leg hangup Q850 cause: ${hangup_cause_q850}"/>
+         <action application="hangup" data="${hangup_cause_q850}"/>
+       </condition>
+    </extension> 
+
+  </context>
+
+</include>            

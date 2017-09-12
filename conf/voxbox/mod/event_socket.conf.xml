@@ -1,0 +1,8 @@
+<configuration name="event_socket.conf" description="Socket Client">
+  <settings>
+    <param name="listen-ip" value="$${cluster_host}"/>
+    <param name="listen-port" value="8021"/>
+    <param name="password" value="$${cluster_password}"/>
+    <param name="apply-inbound-acl" value="localnet.auto"/>
+  </settings>
+</configuration>
