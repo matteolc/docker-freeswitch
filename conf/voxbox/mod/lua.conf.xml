@@ -1,8 +1,0 @@
-<configuration name="lua.conf" description="LUA Configuration">
-  <settings>
-
-	<param name="module-directory" value="/usr/local/lib/lua/5.1/?.so"/>
-    <param name="module-directory" value="/usr/local/lib/lua/5.1/luasql/?.so"/>
-
-  </settings>
-</configuration>
